@@ -2,9 +2,6 @@ const path=require("path");
 const express=require('express');
 const router=express.Router();
 
-const rootDir=require('../util/path');
-router.get('/',(req,res,next) => {
-    //console.log('in the another meeting')
-    res.sendFile(path.join(rootDir,'views', 'shop.html'));
-});
+const productsController=require('../controllers/products');
+router.get('/',productsController.getProducts);
 module.exports=router;
